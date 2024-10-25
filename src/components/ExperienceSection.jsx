@@ -18,13 +18,13 @@ const ExperienceSection = () => {
         </div>
         <h3 className={`mt-6 text-xl font-semibold leading-tight ${isDarkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}>{title}</h3>
         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-500'} transition-colors duration-300`}>{period}</p>
-        <ul className={`no-dots pl-5 mt-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+        <ul className={`no-dots pl-5 mt-4 align-justify ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
           {showMore ? (
             details.map((detail, idx) => (
               <li key={idx} className={`transition-opacity duration-500 ease-in ${showMore ? 'opacity-100' : 'opacity-0'}`}>{detail}</li>
             ))
           ) : (
-            <li className={`transition-opacity duration-500 ease-in ${showMore ? 'opacity-100' : 'opacity-0'}`}>{details[0]}</li>
+            <li className={`transition-opacity duration-500  ease-in ${showMore ? 'opacity-100' : 'opacity-0'}`}>{details[0]}</li>
           )}
         </ul>
 

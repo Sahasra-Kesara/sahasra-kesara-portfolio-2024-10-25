@@ -58,7 +58,7 @@ const AboutPage = () => {
                   {/* Education Section */}
                   <AboutSection 
                     title="Education"
-                    subtitle="BSc. (Hons)"
+                    subtitle="BSc. (Hons) Software Engineering"
                     description="Holds a BSc. (Hons) in Software Engineering from ICBT. Actively pursues knowledge in programming languages and technologies like Python and cloud computing."
                     isDarkMode={isDarkMode}
                   />
@@ -89,9 +89,9 @@ const AboutSection = ({ title, subtitle, description, isDarkMode }) => (
   <div className="px-6 py-4">
     <div className="flex justify-between">
       <span className="font-semibold text-lg">{title}</span>
-      <span className={`text-gray-500 text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{subtitle}</span>
+      <span className={`text-gray-500 text-justify text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{subtitle}</span>
     </div>
-    <p className={`mt-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+    <p className={`mt-2 text-justify ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
       {description}
     </p>
   </div>
