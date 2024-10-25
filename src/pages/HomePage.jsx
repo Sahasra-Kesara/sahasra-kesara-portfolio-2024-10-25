@@ -53,7 +53,7 @@ const HomePage = () => {
                     muted 
                     className="absolute top-0 left-0 w-full h-full object-cover z-5"
                 >
-                    <source src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1729869828/853919-hd_1920_1080_25fps_btc2x4.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1729885556/3130284-uhd_3840_2160_30fps_hj2lml.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 

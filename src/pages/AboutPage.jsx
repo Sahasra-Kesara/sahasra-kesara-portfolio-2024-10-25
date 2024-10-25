@@ -7,14 +7,27 @@ const AboutPage = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-800 bg-white'}`}>
+    <div className={`min-h-screen relative ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-800 bg-white'}`}>
+      {/* Background Video */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1729869828/853919-hd_1920_1080_25fps_btc2x4.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+
       <section className="overflow-hidden pt-16 mb-24">
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col md:flex-row items-center justify-between">
 
             {/* Left column: Image */}
             <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-            <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
+              <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
                 About Me
               </h2>
               {/* <img
@@ -69,7 +82,7 @@ const AboutPage = () => {
       </section>
 
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <Education/>
+        <Education />
       </div>
     </div>
   );
