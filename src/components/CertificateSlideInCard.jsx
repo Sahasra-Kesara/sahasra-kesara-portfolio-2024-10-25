@@ -20,7 +20,7 @@ const CertificateSlideInCard = () => {
   if (!visible) return null;
 
   return (
-    <div className={`fixed top-16 right-0 flex items-center justify-center py-4 z-50 mx-4 ${animate}`}>
+    <div className={`fixed top-16 right-0 flex items-center animate-bounce justify-center py-4 z-50 mx-4 ${animate}`}>
       <div className="container">
         <div className={`flex flex-wrap items-center justify-between rounded-lg border ${isDarkMode ? "bg-gray-800 text-white border-gray-700" : "bg-white text-black border-gray-300"} p-4 shadow-lg`}>
           <div className="w-full md:w-7/12 lg:w-2/3 flex items-center px-2">

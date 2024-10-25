@@ -9,7 +9,7 @@ const ProjectsPage = () => {
 
   return (
     <div className={`p-12  ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      <h1 className={`text-4xl font-bold mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Front-End Projects</h1>
+      <h1 className={`text-4xl font-bold mb-6 text-center ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Front-End Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ProjectCard
           title="Expense Tracker Mobile Application"
@@ -66,7 +66,7 @@ const ProjectsPage = () => {
           techLogos={[FaAngular]}
         />
       </div>
-      <h1 className={`text-4xl font-bold mb-6 mt-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Full-Stack Projects</h1>
+      <h1 className={`text-4xl font-bold animate-bounce mb-6 mt-10 text-center ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Full-Stack Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ProjectCard
           title="Home Electrical Device Management app"
@@ -105,7 +105,7 @@ const ProjectsPage = () => {
           techLogos={[FaCode, FaDatabase]}
         />
       </div>
-      <h1 className={`text-4xl font-bold mb-6 mt-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>AI/ML Projects</h1>
+      <h1 className={`text-4xl font-bold mb-6 mt-10 animate-bounce text-center ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>AI/ML Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ProjectCard
           title="News-Summarization-Application"

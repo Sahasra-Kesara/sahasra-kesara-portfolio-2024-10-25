@@ -15,8 +15,8 @@ const ProjectCard = ({ title, description, figmaLink, behanceLink, githubLink, t
       <h2 className={`text-2xl font-bold mb-2 ${isDarkMode ? 'text-blue-600' : ''}`}>{title}</h2>
       <p className="mb-4">{description}</p>
 
-      <p className="mb-4 font-bold">Visit these links to see my project:</p>
-      <div className="flex space-x-4 mb-4">
+      <p className="mb-4 font-bold animate-pulse">Visit these links to see my project:</p>
+      <div className="flex space-x-4 mb-4 animate-pulse">
         {figmaLink && (
           <a href={figmaLink} className="text-gray-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
             <FaFigma className="h-8 w-8" />
