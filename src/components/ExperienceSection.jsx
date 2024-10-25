@@ -18,7 +18,7 @@ const ExperienceSection = () => {
         </div>
         <h3 className={`mt-6 text-xl font-semibold leading-tight ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{title}</h3>
         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-500'}`}>{period}</p>
-        <ul className={`list-disc pl-5 mt-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+        <ul className={`no-dots pl-5 mt-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
           {showMore ? (
             details.map((detail, idx) => (
               <li key={idx}>{detail}</li>
@@ -27,6 +27,7 @@ const ExperienceSection = () => {
             <li>{details[0]}</li> // Show only the first detail if not expanded
           )}
         </ul>
+
         <button 
           onClick={toggleShowMore} 
           className={`mt-2 text-sm font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} hover:underline`}
