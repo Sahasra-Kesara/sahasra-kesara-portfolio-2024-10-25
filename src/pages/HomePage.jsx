@@ -3,7 +3,7 @@ import { useTheme } from '../components/ThemeContext';
 import TypingEffect from '../components/TypingEffect';
 import ExperienceSection from '../components/ExperienceSection';
 import { FaDownload } from 'react-icons/fa';
-import profile from '../assets/profile.png';
+import profileCMU from '../assets/profileCMU.png';
 
 const HomePage = () => {
     const { isDarkMode } = useTheme();
@@ -66,8 +66,8 @@ const HomePage = () => {
                     <div className="flex justify-center w-full md:w-1/2 mb-4 md:mb-0">
                         <img
                             className="relative large-image xl:mx-auto 2xl:origin-bottom 2xl:scale-110 w-full h-auto"
-                            src={profile}
-                            alt="profile"
+                            src={profileCMU}
+                            alt="profileCMU"
                         />
                     </div> 
 
