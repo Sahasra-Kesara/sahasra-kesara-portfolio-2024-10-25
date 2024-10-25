@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '../components/ThemeContext'; // Import the useTheme hook
-import TypingEffect from '../components/TypingEffect'; // Adjust the path if necessary
-import bg2 from '../assets/bg2.png';
+import { useTheme } from '../components/ThemeContext';
+import TypingEffect from '../components/TypingEffect';
 import ExperienceSection from '../components/ExperienceSection';
 import { FaDownload } from 'react-icons/fa';
 
 const HomePage = () => {
-    const { isDarkMode } = useTheme(); // Get the isDarkMode state
+    const { isDarkMode } = useTheme();
 
     const [yearsOfExperience, setYearsOfExperience] = useState(0);
     const [componentContribution, setComponentContribution] = useState(0);
     const [usersGotHelp, setUsersGotHelp] = useState(0);
 
     useEffect(() => {
-        const duration = 2000; // Duration for the countdown in milliseconds
+        const duration = 2000;
         const incrementExperience = Math.ceil(2 / (duration / 100));
         const incrementContribution = Math.ceil(76 / (duration / 100));
         const incrementHelp = Math.ceil(250 / (duration / 100));
@@ -45,17 +44,31 @@ const HomePage = () => {
 
     return (
         <>
+        <div className="relative h-screen overflow-hidden">
+            {/* Background Video */}
+            <video 
+                autoPlay 
+                loop 
+                muted 
+                className="absolute top-0 left-0 w-full h-full object-cover z-5"
+            >
+                <source src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1729869828/853919-hd_1920_1080_25fps_btc2x4.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            {/* Overlay for dark mode */}
+            <div className={`absolute top-0 left-0 w-full h-full bg-black opacity-30 z-10 ${isDarkMode ? 'bg-gray-800' : ''}`} />
+
             {/* Content */}
-            <div className={`flex flex-col md:flex-row md:items-center p-4 h-full relative z-10 ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-800 bg-gradient-to-r from-white via-blue-50 to-blue-50'}`}>
-                
+            <div className={`flex flex-col md:flex-row md:items-center p-4 h-full relative z-20 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
                 {/* Featured Image */}
-                <div className="flex justify-center w-full md:w-1/2 mb-4 md:mb-0">
+                {/* <div className="flex justify-center w-full md:w-1/2 mb-4 md:mb-0">
                     <img
                         className="relative large-image xl:mx-auto 2xl:origin-bottom 2xl:scale-110 w-full h-auto"
                         src={bg2}
                         alt="bg2"
                     />
-                </div>
+                </div> */}
 
                 {/* Left column */}
                 <div className="w-full flex flex-col md:ml-4">
@@ -71,10 +84,10 @@ const HomePage = () => {
 
                 {/* Right column with statistics */}
                 <div className="w-full flex flex-col sm:justify-center sm:gap-4 xs:bg-gray-700/60 sm:bg-transparent p-4 rounded-lg z-10 mt-4 md:mt-0">
-                    {[ 
-                        { label: "Years of Experience", value: yearsOfExperience }, 
-                        { label: "Component Contribution", value: componentContribution }, 
-                        { label: "User's Got Help", value: usersGotHelp }, 
+                    {[
+                        { label: "Years of Experience", value: yearsOfExperience },
+                        { label: "Component Contribution", value: componentContribution },
+                        { label: "User's Got Help", value: usersGotHelp },
                     ].map((stat, index) => (
                         <div key={index} className="flex flex-col items-center">
                             <div className="inline-flex gap-1 items-center">
@@ -85,22 +98,25 @@ const HomePage = () => {
                         </div>
                     ))}
                 </div>
+
                 {/* Floating button for downloading resume */}
                 <div className="fixed bottom-10 right-10 flex flex-col items-center">
-                    <a 
-                        href="/resume/cv.pdf" 
-                        download 
-                        className={`w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition duration-300 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-300 hover:bg-blue-500'} `}
+                    <a
+                        href="/resume/cv.pdf"
+                        download
+                        className={`w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition duration-300 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-300 hover:bg-blue-500'}`}
                         title="Download Resume"
                     >
-                        <FaDownload className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`} /> {/* React Icons download icon */}
+                        <FaDownload className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`} />
                     </a>
                     <span className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Download</span>
                     <span className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>my resume</span>
                 </div>
             </div>
+
             
-            <ExperienceSection/>
+        </div>
+        <ExperienceSection />
         </>
     );
 };
