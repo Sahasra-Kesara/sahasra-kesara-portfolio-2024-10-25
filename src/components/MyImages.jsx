@@ -80,4 +80,34 @@ const cards = [
     title: "Title 6",
     id: 6,
   },
+  {
+    url: "MyImages/7.jpg",
+    title: "Title 7",
+    id: 7,
+  },
+  {
+    url: "MyImages/8.jpg",
+    title: "Title 8",
+    id: 8,
+  },
+  {
+    url: "MyImages/9.jpg",
+    title: "Title 9",
+    id: 9,
+  },
+  {
+    url: "MyImages/10.jpg",
+    title: "Title 10",
+    id: 10,
+  },
+  {
+    url: "MyImages/11.jpg",
+    title: "Title 11",
+    id: 11,
+  },
+  {
+    url: "MyImages/12.jpg",
+    title: "Title 12",
+    id: 12,
+  },
 ];
