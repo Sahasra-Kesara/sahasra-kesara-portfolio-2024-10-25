@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-// import profile from '../assets/profile.png';
 import { useTheme } from '../components/ThemeContext';
 import Education from '../components/Education';
 import styles from '../pages/bubble.module.css';
 import MyImages from '../components/MyImages';
+//import SocialLinks from '../components/SocialLinks';
+
 
 const AboutPage = () => {
   const { isDarkMode } = useTheme();
@@ -23,7 +24,6 @@ const AboutPage = () => {
         Your browser does not support the video tag.
       </video>
 
-
       {/* Overlay for dark mode */}
       <div className={`absolute top-0 left-0 w-full h-full z-10 ${isDarkMode ? 'bg-black opacity-70' : ''}`} />
 
@@ -33,19 +33,18 @@ const AboutPage = () => {
             {/* Left column: Title */}
             <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
               <h2 className={`text-3xl font-bold text-center ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
-      {"About Me".split("").map((child, idx) => (
-        <span className={`${styles.hoverText} transform transition-transform duration-300`} key={idx}>
-          {child}
-        </span>
-      ))}
-    </h2>
+                {"About Me".split("").map((child, idx) => (
+                  <span className={`${styles.hoverText} transform transition-transform duration-300`} key={idx}>
+                    {child}
+                  </span>
+                ))}
+              </h2>
             </div>
 
             {/* Right column: Text content */}
             <div className="md:w-1/2 md:pl-10">
               <div className={`rounded-lg max-w-2xl p-6 ${isDarkMode ? '' : ''}`}>
                 <div className={`grid grid-cols-1 sm:grid-cols-2 divide-y divide-gray-200 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
-                  
                   {/* About Me Section */}
                   <AboutSection 
                     title="About Me"
@@ -86,8 +85,11 @@ const AboutPage = () => {
 
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <Education />
-        <MyImages/>
+        <MyImages />
       </div>
+
+      {/* Reveal Links Section */}
+      {/* <SocialLinks /> Add the SocialLinks component here */}
     </div>
   );
 };
