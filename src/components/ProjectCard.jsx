@@ -1,13 +1,50 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaGithub, FaBehance, FaFigma } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { useTheme } from './ThemeContext';
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+} from 'framer-motion';
 
 const ProjectCard = ({ title, description, figmaLink, behanceLink, githubLink, techLogos }) => {
   const { isDarkMode } = useTheme();
+  
+  // Motion values for tilting effect
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const xSpring = useSpring(x);
+  const ySpring = useSpring(y);
+  const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
+  const ref = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!ref.current) return;
+
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = (e.clientX - rect.left) / width - 0.5;
+    const mouseY = (e.clientY - rect.top) / height - 0.5;
+
+    x.set(mouseY * 20); // Adjust the multiplier for tilt intensity
+    y.set(mouseX * 20); // Adjust the multiplier for tilt intensity
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   return (
-    <div
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transform }}
       className={`border-l-8 rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200 ${
         isDarkMode ? 'bg-gray-800 text-gray-100 border-blue-900' : 'bg-gradient-to-r from-white via-blue-50 to-blue-50 border-blue-300 text-gray-900'
       }`}
@@ -40,7 +77,7 @@ const ProjectCard = ({ title, description, figmaLink, behanceLink, githubLink, t
           <Icon key={index} className="h-6 w-6 text-gray-600" />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
