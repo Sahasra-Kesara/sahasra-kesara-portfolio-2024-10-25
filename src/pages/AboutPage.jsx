@@ -15,11 +15,12 @@ const AboutPage = () => {
         loop
         muted
         className="absolute top-0 left-0 w-full h-full object-cover -z-5"
-        style={{ opacity: 0.5 }}
+        style={{ opacity: isDarkMode ? 0.7 : 0.1 }}
       >
         <source src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1729889406/3129785-sd_426_240_25fps_aaouab.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+
 
       {/* Overlay for dark mode */}
       <div className={`absolute top-0 left-0 w-full h-full z-10 ${isDarkMode ? 'bg-black opacity-70' : ''}`} />
@@ -58,7 +59,7 @@ const AboutPage = () => {
                   {/* Education Section */}
                   <AboutSection 
                     title="Education"
-                    subtitle="BSc. (Hons) Software Engineering"
+                    subtitle="BSc. (Hons) S E"
                     description="Holds a BSc. (Hons) in Software Engineering from ICBT. Actively pursues knowledge in programming languages and technologies like Python and cloud computing."
                     isDarkMode={isDarkMode}
                   />

@@ -12,7 +12,7 @@ const ExperienceSection = () => {
     };
 
     return (
-      <div className="text-center transition-transform transform duration-300 hover:scale-105">
+      <div className="text-center mt-10 transition-transform transform duration-300 hover:scale-105">
         <div className={`flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow animate-pulse ${isDarkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-300`}>
           <span className="text-xl font-semibold text-gray-700">{index + 1}</span>
         </div>

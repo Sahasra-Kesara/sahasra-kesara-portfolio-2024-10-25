@@ -83,17 +83,17 @@ const HomePage = () => {
                     </div>
 
                     {/* Right column with statistics */}
-                    <div className="w-full flex sm:flex-col xs:justify-center xs:mt-4 sm:mt-0 sm:gap-8 xs:gap-2 xs:bg-gray-700/60 sm:bg-transparent p-4 rounded-lg z-10 mt-4 md:mt-0">
+                    <div className="w-full flex sm:flex-col xs:justify-center xs:mt-4 sm:mt-0 sm:gap-8 xs:gap-2 xs:bg-gray-700/60 sm:bg-transparent p-4 rounded-lg z-10 mt-4 mb-10 md:mt-0">
                     {[
                         { label: "Years of Experience", value: yearsOfExperience },
                         { label: "Component Contribution", value: componentContribution },
                         { label: "User's Got Help", value: usersGotHelp },
                     ].map((stat, index) => (
-                        <div key={index} className="flex flex-col sm:items-end xs:items-center">
+                        <div key={index} className="flex flex-col sm:items-end xs:items-center ml-8 mb-10">
                         <div className="inline-flex gap-1 items-center">
                             <h2
                             className={`xl:text-8xl md:text-7xl sm:text-6xl xs:text-3xl font-semibold ${
-                                isDarkMode ? 'text-white' : 'text-gray-800'
+                                isDarkMode ? 'text-white' : 'text-gray-300'
                             }`}
                             >
                             {stat.value.toFixed(0)}
@@ -106,7 +106,7 @@ const HomePage = () => {
                         </div>
                         <h4
                             className={`xs:text-sm sm:text-lg xl:text-xl xs:text-center ${
-                            isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                            isDarkMode ? 'text-gray-300' : 'text-gray-400'
                             }`}
                         >
                             {stat.label}
