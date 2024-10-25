@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from './ThemeContext'; // Adjust the import path as necessary
 
 const Education = () => {
   const { isDarkMode } = useTheme(); // Access theme state
+  const [expandedIndex, setExpandedIndex] = useState(null); // State to track expanded education item
 
   const educationData = [
     {
@@ -55,22 +56,37 @@ const Education = () => {
     }
   ];
 
+  const handleToggle = (index) => {
+    setExpandedIndex(prevIndex => (prevIndex === index ? null : index));
+  };
+
   return (
     <div className={`p-6 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
       <h2 className="text-3xl font-bold mb-4 text-center">Education</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {educationData.map((edu, index) => (
-          <div key={index} className={`shadow-md rounded-lg p-4 ${isDarkMode ? 'bg-gray-700' : 'bg-white text-black'}`}>
+          <div 
+            key={index} 
+            className={`shadow-md rounded-lg p-4 transition-transform transition-shadow duration-300 ease-in-out ${isDarkMode ? 'bg-gray-700' : 'bg-white text-black'} hover:scale-105 hover:shadow-xl`}
+          >
             <img src={edu.image} alt={`${edu.institution} Logo`} className="h-16 w-auto mb-2" />
             <h3 className="font-semibold">{edu.institution}</h3>
             <p>{edu.degree}</p>
             <p>{edu.date}</p>
             <h4 className="font-medium mt-2">Key {edu.keyTopics ? "Topics" : "Subjects"}:</h4>
             <ul className="list-disc list-inside">
-              {(edu.keySubjects || edu.keyTopics).map((subject, idx) => (
+              {(edu.keySubjects || edu.keyTopics).slice(0, expandedIndex === index ? undefined : 3).map((subject, idx) => (
                 <li key={idx}>{subject}</li>
               ))}
             </ul>
+            {edu.keySubjects && edu.keySubjects.length > 3 && (
+              <button 
+                className="mt-2 text-blue-500 hover:underline"
+                onClick={() => handleToggle(index)}
+              >
+                {expandedIndex === index ? 'See Less' : 'See More'}
+              </button>
+            )}
           </div>
         ))}
       </div>
