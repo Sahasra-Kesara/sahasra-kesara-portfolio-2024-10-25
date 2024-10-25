@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../components/ThemeContext';
+import styles from '../pages/bubble.module.css';
 
 const ExperienceSection = () => {
   const { isDarkMode } = useTheme();
@@ -21,7 +22,13 @@ const ExperienceSection = () => {
     <section id="experience" className={`relative ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'} py-10 sm:py-16 lg:py-24`}>
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className={`text-4xl ${isDarkMode ? 'text-white' : 'text-gray-800'} animate-bounce font-extrabold mx-auto md:text-6xl lg:text-5xl`}>Work Experience</h2>
+          <h2 className={`text-4xl ${isDarkMode ? 'text-white' : 'text-gray-800'} animate-bounce font-extrabold mx-auto md:text-6xl lg:text-5xl`}>
+      {"Work Experience".split("").map((child, idx) => (
+        <span className={`${styles.hoverText} transform transition-transform duration-300`} key={idx}>
+          {child}
+        </span>
+      ))}
+    </h2>
           <p className={`max-w-2xl mx-auto mt-4 text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed md:text-2xl`}>
             Here are some of the places I've worked and what I've done.
           </p>

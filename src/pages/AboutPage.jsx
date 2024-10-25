@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 // import profile from '../assets/profile.png';
 import { useTheme } from '../components/ThemeContext';
 import Education from '../components/Education';
+import styles from '../pages/bubble.module.css';
+import MyImages from '../components/MyImages';
 
 const AboutPage = () => {
   const { isDarkMode } = useTheme();
@@ -30,9 +32,13 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Left column: Title */}
             <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-              <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
-                About Me
-              </h2>
+              <h2 className={`text-3xl font-bold text-center ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
+      {"About Me".split("").map((child, idx) => (
+        <span className={`${styles.hoverText} transform transition-transform duration-300`} key={idx}>
+          {child}
+        </span>
+      ))}
+    </h2>
             </div>
 
             {/* Right column: Text content */}
@@ -80,6 +86,7 @@ const AboutPage = () => {
 
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <Education />
+        <MyImages/>
       </div>
     </div>
   );

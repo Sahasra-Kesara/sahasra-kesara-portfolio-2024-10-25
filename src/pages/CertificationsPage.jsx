@@ -1,6 +1,7 @@
 import React from 'react';
 import CertificateSlideInCard from '../components/CertificateSlideInCard';
 import { useTheme } from '../components/ThemeContext';
+import styles from '../pages/bubble.module.css';
 
 const certificatesData = [
   {
@@ -157,7 +158,13 @@ const Certificates = () => {
 
   return (
     <div className={` p-8 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'}`}>
-      <h1 className={`text-4xl font-bold mb-6 text-center drop-shadow-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Licenses & Certifications</h1>
+      <h1 className={`text-4xl font-bold mb-6 text-center drop-shadow-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+      {"Licenses & Certifications".split("").map((child, idx) => (
+        <span className={`${styles.hoverText} transform transition-transform duration-300`} key={idx}>
+          {child}
+        </span>
+      ))}
+    </h1>
       <div className="flex flex-wrap gap-6 justify-center">
         {certificatesData.map((cert, index) => (
           <div
