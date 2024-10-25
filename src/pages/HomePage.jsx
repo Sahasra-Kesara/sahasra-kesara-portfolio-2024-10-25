@@ -58,7 +58,7 @@ const HomePage = () => {
                 </video>
 
                 {/* Overlay for dark mode */}
-                <div className={`absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10 ${isDarkMode ? 'bg-gray-800' : ''}`} />
+                <div className={`absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10 ${isDarkMode ? 'bg-black-900' : ''}`} />
 
                 {/* Content */}
                 <div className={`flex flex-col md:flex-row md:items-center p-4 h-full relative z-20 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>

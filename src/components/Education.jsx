@@ -61,13 +61,13 @@ const Education = () => {
   };
 
   return (
-    <div className={`p-6 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+    <div className={`p-6 ${isDarkMode ? ' text-white' : 'text-black'}`}>
       <h2 className="text-3xl font-bold mb-4 text-center">Education</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {educationData.map((edu, index) => (
           <div 
             key={index} 
-            className={`shadow-md rounded-lg p-4 transition-transform transition-shadow duration-300 ease-in-out ${isDarkMode ? 'bg-gray-700' : 'bg-white text-black'} hover:scale-105 hover:shadow-xl`}
+            className={` rounded-lg p-4 transition-transform transition-shadow duration-300 ease-in-out ${isDarkMode ? '' : 'text-black'} hover:scale-105 `}
           >
             <img src={edu.image} alt={`${edu.institution} Logo`} className="h-16 w-auto mb-2" />
             <h3 className="font-semibold">{edu.institution}</h3>
