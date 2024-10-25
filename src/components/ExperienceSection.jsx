@@ -1,42 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTheme } from '../components/ThemeContext';
 
 const ExperienceSection = () => {
   const { isDarkMode } = useTheme();
 
-  const ExperienceItem = ({ title, period, details, index }) => {
-    const [showMore, setShowMore] = useState(false);
-
-    const toggleShowMore = () => {
-      setShowMore(!showMore);
-    };
-
-    return (
-      <div className="text-center mt-10 transition-transform transform duration-300 hover:scale-105">
-        <div className={`flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow animate-pulse ${isDarkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-300`}>
-          <span className="text-xl font-semibold text-gray-700">{index + 1}</span>
-        </div>
-        <h3 className={`mt-6 text-xl font-semibold leading-tight ${isDarkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}>{title}</h3>
-        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-500'} transition-colors duration-300`}>{period}</p>
-        <ul className={`no-dots pl-5 mt-4 align-justify ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-          {showMore ? (
-            details.map((detail, idx) => (
-              <li key={idx} className={`transition-opacity duration-500 ease-in ${showMore ? 'opacity-100' : 'opacity-0'}`}>{detail}</li>
-            ))
-          ) : (
-            <li className={`transition-opacity duration-500  ease-in ${showMore ? 'opacity-100' : 'opacity-0'}`}>{details[0]}</li>
-          )}
-        </ul>
-
-        <button 
-          onClick={toggleShowMore} 
-          className={`mt-2 text-sm font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} hover:underline transition-all duration-300`}
-        >
-          {showMore ? 'See less' : 'See more'}
-        </button>
+  const ExperienceItem = ({ title, period, details, index }) => (
+    <div className="text-center mt-10 transition-transform transform duration-300 hover:scale-105">
+      <div className={`flex items-center justify-center w-16 h-16 mx-auto border-2 border-gray-200 rounded-full shadow animate-pulse ${isDarkMode ? 'bg-gray-800' : 'bg-white'} transition-colors duration-300`}>
+        <span className="text-xl font-semibold text-gray-700">{index + 1}</span>
       </div>
-    );
-  };
+      <h3 className={`mt-6 text-xl font-semibold leading-tight ${isDarkMode ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}>{title}</h3>
+      <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-500'} transition-colors duration-300`}>{period}</p>
+      <p className={`pl-5 mt-4 text-justify ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+        {details.join(' ')}
+      </p>
+    </div>
+  );
 
   return (
     <section id="experience" className={`relative ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'} py-10 sm:py-16 lg:py-24`}>
@@ -56,7 +35,7 @@ const ExperienceSection = () => {
               height="500"
               decoding="async"
               data-nimg="1"
-              className="w-full animate-pulse"  // Added animate-pulse here
+              className="w-full animate-pulse"
               style={{ color: 'transparent' }}
               src="https://cdn.rareblocks.xyz/collection/celebration/images/steps/2/curved-dotted-line.svg"
             />
@@ -66,10 +45,7 @@ const ExperienceSection = () => {
               title="StackNet (Pvt) Ltd (Freelance Job)"
               period="Aug 2024 - Present"
               details={[
-                "Founder and CEO",
-                "Lead a dynamic team of skilled professionals in software development.",
-                "Delivering customized software applications across various industries.",
-                "Developing web and mobile applications, AI-driven software, e-commerce platforms, and UI/UX design."
+                "Founder and CEO. Lead a dynamic team of skilled professionals in software development. Delivering customized software applications across various industries. Developing web and mobile applications, AI-driven software, e-commerce platforms, and UI/UX design."
               ]}
               index={0}
             />
@@ -77,10 +53,7 @@ const ExperienceSection = () => {
               title="Solar Care International"
               period="June 2024 - Present"
               details={[
-                "Software Engineering Team Lead",
-                "Raffle Draw and Home Electrical Device management software.",
-                "Develop and maintain the front-end using React.js and Material-UI.",
-                "Implement back-end services using Node.js and Express.js."
+                "Software Engineering Team Lead. Raffle Draw and Home Electrical Device management software. Develop and maintain the front-end using React.js and Material-UI. Implement back-end services using Node.js and Express.js."
               ]}
               index={1}
             />
@@ -88,8 +61,7 @@ const ExperienceSection = () => {
               title="BlueTech Cloud Solutions"
               period="Apr 2023 – Jul 2023"
               details={[
-                "Junior .Net Developer",
-                "Worked on Point Of Sale Systems for Restaurants, Bars, Supermarkets."
+                "Junior .Net Developer. Worked on Point Of Sale Systems for Restaurants, Bars, Supermarkets."
               ]}
               index={2}
             />
@@ -97,8 +69,7 @@ const ExperienceSection = () => {
               title="Medium"
               period="Jun 2023 - Aug 2024"
               details={[
-                "Blog Writer",
-                "Wrote articles on database administration, cloud technologies, and IT trends."
+                "Blog Writer. Wrote articles on database administration, cloud technologies, and IT trends."
               ]}
               index={3}
             />
