@@ -44,68 +44,65 @@ const HomePage = () => {
     }, []);
 
     return (
-    <>
-        {/* Content */}
-        <div className={`flex flex-col md:flex-row md:items-center p-4 h-full relative z-10 ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-800 bg-gradient-to-r from-white via-blue-50 to-blue-50'}`}>
-            
-            {/* Featured Image */}
-            <div className="flex justify-center md:w-1/2 mb-4 md:mb-0">
-                <img
-                    className="relative large-image xl:mx-auto 2xl:origin-bottom 2xl:scale-110 w-full h-auto"
-                    src={bg2}
-                    alt="bg2"
-                />
-            </div>
+        <>
+            {/* Content */}
+            <div className={`flex flex-col md:flex-row md:items-center p-4 h-full relative z-10 ${isDarkMode ? 'text-white bg-gray-800' : 'text-gray-800 bg-gradient-to-r from-white via-blue-50 to-blue-50'}`}>
+                
+                {/* Featured Image */}
+                <div className="flex justify-center w-full md:w-1/2 mb-4 md:mb-0">
+                    <img
+                        className="relative large-image xl:mx-auto 2xl:origin-bottom 2xl:scale-110 w-full h-auto"
+                        src={bg2}
+                        alt="bg2"
+                    />
+                </div>
 
-            {/* Left column */}
-            <div className="w-full flex flex-col md:ml-4">
-                <h4 className="text-lg font-semibold xl:text-2xl">Hey There</h4>
-                <h1 className="xl:text-6xl sm:text-5xl xs:text-3xl font-semibold mt-2">
-                    <TypingEffect />
-                </h1>
-                <h4 className="text-blue-800 mt-4 lg:text-2xl">FullStack Developer</h4>
-                <p className="lg:w-[70%] xs:w-full text-sm mt-4 xl:text-xl">
-                    Experienced full-stack developer with 2+ years of expertise in MERN, ASP.NET Core, Flask, and some React Native experience.
-                </p>
-            </div>
+                {/* Left column */}
+                <div className="w-full flex flex-col md:ml-4">
+                    <h4 className="text-lg font-semibold xl:text-2xl">Hey There</h4>
+                    <h1 className="xl:text-6xl sm:text-5xl xs:text-3xl font-semibold mt-2">
+                        <TypingEffect />
+                    </h1>
+                    <h4 className="text-blue-800 mt-4 lg:text-2xl">FullStack Developer</h4>
+                    <p className="lg:w-[70%] xs:w-full text-sm mt-4 xl:text-xl">
+                        Experienced full-stack developer with 2+ years of expertise in MERN, ASP.NET Core, Flask, and some React Native experience.
+                    </p>
+                </div>
 
-            {/* Right column with statistics */}
-            <div className={`w-full flex flex-col sm:flex-row sm:justify-center sm:gap-4 xs:bg-gray-700/60 sm:bg-transparent p-4 rounded-lg z-10 mt-4 md:mt-0`}>
-                {[ 
-                    { label: "Years of Experience", value: yearsOfExperience }, 
-                    { label: "Component Contribution", value: componentContribution }, 
-                    { label: "User's Got Help", value: usersGotHelp }, 
-                ].map((stat, index) => (
-                    <div key={index} className="flex flex-col items-center w-full sm:w-1/3">
-                        <div className="inline-flex gap-1 items-center">
-                            {/* Adjust the size for mobile view */}
-                            <h2 className="xl:text-8xl md:text-7xl sm:text-6xl xs:text-5xl font-semibold">{stat.value.toFixed(0)}</h2>
-                            <h2 className="text-blue-800 xl:text-8xl md:text-7xl sm:text-6xl xs:text-5xl font-extrabold">+</h2>
+                {/* Right column with statistics */}
+                <div className="w-full flex flex-col sm:justify-center sm:gap-4 xs:bg-gray-700/60 sm:bg-transparent p-4 rounded-lg z-10 mt-4 md:mt-0">
+                    {[ 
+                        { label: "Years of Experience", value: yearsOfExperience }, 
+                        { label: "Component Contribution", value: componentContribution }, 
+                        { label: "User's Got Help", value: usersGotHelp }, 
+                    ].map((stat, index) => (
+                        <div key={index} className="flex flex-col items-center">
+                            <div className="inline-flex gap-1 items-center">
+                                <h2 className="xl:text-8xl md:text-7xl sm:text-6xl xs:text-4xl font-semibold">{stat.value.toFixed(0)}</h2>
+                                <h2 className="text-blue-800 xl:text-8xl md:text-7xl sm:text-6xl xs:text-4xl font-extrabold">+</h2>
+                            </div>
+                            <h4 className="xs:text-sm sm:text-lg xl:text-xl xs:text-center">{stat.label}</h4>
                         </div>
-                        <h4 className="xs:text-base sm:text-lg xl:text-xl xs:text-center">{stat.label}</h4>
-                    </div>
-                ))}
+                    ))}
+                </div>
+                {/* Floating button for downloading resume */}
+                <div className="fixed bottom-10 right-10 flex flex-col items-center">
+                    <a 
+                        href="/resume/cv.pdf" 
+                        download 
+                        className={`w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition duration-300 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-300 hover:bg-blue-500'} `}
+                        title="Download Resume"
+                    >
+                        <FaDownload className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`} /> {/* React Icons download icon */}
+                    </a>
+                    <span className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Download</span>
+                    <span className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>my resume</span>
+                </div>
             </div>
-
-
-            {/* Floating button for downloading resume */}
-            <div className="fixed top-30 right-10 flex flex-col items-center">
-                <a 
-                    href="/resume/cv.pdf" 
-                    download 
-                    className={`w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition duration-300 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-300 hover:bg-blue-500'} `}
-                    title="Download Resume"
-                >
-                    <FaDownload className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`} /> {/* React Icons download icon */}
-                </a>
-                <span className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Download</span>
-                <span className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>my resume</span>
-            </div>
-        </div>
-        
+            
             <ExperienceSection/>
-    </>
-);
+        </>
+    );
 };
 
 export default HomePage;
