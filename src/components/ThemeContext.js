@@ -4,7 +4,8 @@ import React, { createContext, useContext, useState } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    // Set isDarkMode to true to default to dark theme
+    const [isDarkMode, setIsDarkMode] = useState(true);
 
     const toggleTheme = () => {
         setIsDarkMode((prevMode) => !prevMode);

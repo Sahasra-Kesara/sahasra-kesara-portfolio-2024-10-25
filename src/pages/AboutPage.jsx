@@ -32,15 +32,14 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Left column: Title */}
             <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-              <h2 className={`text-3xl font-bold text-center ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
+              <h1 className={`text-3xl font-bold text-center ${isDarkMode ? 'text-white' : 'text-gray-800'} sm:text-4xl lg:text-5xl`}>
                 {"About Me".split("").map((child, idx) => (
                   <span className={`${styles.hoverText} transform transition-transform duration-300`} key={idx}>
                     {child}
                   </span>
                 ))}
-              </h2>
+              </h1>
             </div>
-
             {/* Right column: Text content */}
             <div className="md:w-1/2 md:pl-10">
               <div className={`rounded-lg max-w-2xl p-6 ${isDarkMode ? '' : ''}`}>
