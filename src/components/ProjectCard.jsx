@@ -55,17 +55,17 @@ const ProjectCard = ({ title, description, figmaLink, behanceLink, githubLink, t
       <p className="mb-4 font-bold animate-pulse">Visit these links to see my project:</p>
       <div className="flex space-x-4 mb-4 animate-pulse">
         {figmaLink && (
-          <a href={figmaLink} className="text-gray-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          <a href={figmaLink} className="text-blue-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
             <FaFigma className="h-8 w-8" />
           </a>
         )}
         {behanceLink && (
-          <a href={behanceLink} className="text-gray-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          <a href={behanceLink} className="text-blue-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
             <FaBehance className="h-8 w-8" />
           </a>
         )}
         {githubLink && (
-          <a href={githubLink} className="text-gray-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
+          <a href={githubLink} className="text-blue-500 hover:text-gray-700" target="_blank" rel="noopener noreferrer">
             <FaGithub className="h-8 w-8" />
           </a>
         )}
